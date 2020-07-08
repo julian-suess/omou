@@ -115,7 +115,7 @@ const Omou = ({
       const oldest = sortedThoughts[thoughts.length - 1];
       const newest = sortedThoughts[0];
       oldest.lastSeen = Date.now();
-      setThought(newest.thought);
+      setThought(oldest.thought);
     }
   };
 
