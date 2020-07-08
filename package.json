@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "gh-pages-deploy": "^0.5.1"
+  },
+  "scripts": {
+    "deploy": "gh-pages-deploy -- 'deployment is a bliss.'"
+  }
+}
