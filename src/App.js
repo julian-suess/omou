@@ -159,7 +159,8 @@ const Omou = ({
             marginBottom="1rem"
             textAlign="center"
             wordWrap="break-word"
-            height="10rem"
+            height="6rem"
+            overflowY="auto"
           >
             {thought}
           </Heading>
