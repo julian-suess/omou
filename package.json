@@ -4,6 +4,7 @@
     "gh-pages-deploy": "^0.5.1"
   },
   "scripts": {
-    "deploy": "gh-pages-deploy -- 'deployment is a bliss.'"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
