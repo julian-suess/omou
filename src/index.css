@@ -1,8 +1,3 @@
-html {
-  width: 100%;
-  height: 100%;
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -14,11 +9,7 @@ body {
 
   width: 100%;
   height: 100%;
-}
-
-#root {
-  width: 100%;
-  height: 100%;
+  background-color: #234361;
 }
 
 code {

@@ -140,10 +140,10 @@ const Omou = ({
       className="App"
       width="100%"
       height="100%"
-      backgroundColor={defaultTheme.scales.neutral.N10}
       display="flex"
       alignItems="center"
       flexDirection="column"
+      marginBottom="10rem"
     >
       <Pane
         width="80vw"
@@ -152,15 +152,14 @@ const Omou = ({
         alignItems="center"
         flexDirection="column"
       >
-        <Pane marginY={120} width="80%">
+        <Pane marginTop="5rem" marginBottom="3rem" width="80%">
           <Heading
             size={900}
             color={defaultTheme.palette.neutral.lightest}
-            marginBottom={64}
+            marginBottom="1rem"
             textAlign="center"
             wordWrap="break-word"
-            height={120}
-            overflow="auto"
+            height="10rem"
           >
             {thought}
           </Heading>
@@ -178,6 +177,7 @@ const Omou = ({
         </Pane>
         <Pane width="80%">
           <Textarea
+            height="5rem"
             placeholder="What do you think?"
             value={thoughtInTheMaking}
             onChange={(event) => {
