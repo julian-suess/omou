@@ -5,13 +5,15 @@ import {
   Textarea,
   IconButton,
   Heading,
+  toaster,
+  Text,
 } from 'evergreen-ui';
 
 const data = [
   {
     thought: 'This is what I think.',
-    createdAt: 1594233153131,
-    lastSeen: 1594233153131,
+    createdAt: 1594233153181,
+    lastSeen: 1594233153181,
   },
   {
     thought: 'I should buy a horse.',
@@ -32,26 +34,28 @@ const data = [
 
 function App() {
   const [thoughts, setThoughts] = useState(data);
-  const [thought, setThought] = useState(thoughts[0].thought);
-  const [thoughtInTheMaking, setThoughtInTheMaking] = useState(null);
+  const [thought, setThought] = useState('I wanna eat your soul.');
+  const [thoughtInTheMaking, setThoughtInTheMaking] = useState('');
 
   const updateThought = () => {
     const sortedThoughts = thoughts.sort((a, b) => b.lastSeen - a.lastSeen);
     const oldest = sortedThoughts[thoughts.length - 1];
+    const newest = sortedThoughts[0];
     oldest.lastSeen = Date.now();
-    setThought(oldest.thought);
+    setThought(newest.thought);
   };
 
   const addThought = () => {
-    setThoughts([
-      ...thoughts,
-      {
-        thought: thoughtInTheMaking,
-        createdAt: Date.now(),
-        lastSeen: Date.now(),
-      },
-    ]);
-
+    if (thoughtInTheMaking.trim().length > 0) {
+      setThoughts([
+        ...thoughts,
+        {
+          thought: thoughtInTheMaking.trim(),
+          createdAt: Date.now(),
+          lastSeen: Date.now(),
+        },
+      ]);
+    }
     setThoughtInTheMaking('');
   };
 
@@ -61,7 +65,6 @@ function App() {
       width="100%"
       height="100%"
       backgroundColor={defaultTheme.scales.neutral.N10}
-      overflow="hidden"
       display="flex"
       alignItems="center"
       flexDirection="column"
@@ -79,6 +82,7 @@ function App() {
             color={defaultTheme.palette.neutral.lightest}
             marginBottom={64}
             textAlign="center"
+            wordWrap="break-word"
           >
             {thought}
           </Heading>
@@ -96,19 +100,33 @@ function App() {
         </Pane>
         <Pane width="80%">
           <Textarea
-            validationMessage="Keep your thoughts to 140 characters."
             placeholder="What do you think?"
             value={thoughtInTheMaking}
-            onChange={(event) => setThoughtInTheMaking(event.target.value)}
+            onChange={(event) => {
+              const text = event.target.value;
+              if (text.length > 140) {
+                toaster.notify('Keep your thoughts short!');
+              } else {
+                setThoughtInTheMaking(text);
+              }
+            }}
+            onKeyPress={(event) => {
+              if (event.key === 'Enter') {
+                addThought();
+              }
+            }}
             padding={24}
           ></Textarea>
           <Pane
             width="100%"
             display="flex"
-            alignItems="flex-end"
-            justifyContent="center"
-            flexDirection="column"
+            alignItems="center"
+            justifyContent="space-between"
+            flexDirection="row"
           >
+            <Text color={defaultTheme.palette.neutral.lightest}>
+              Characters left: {140 - thoughtInTheMaking.length}
+            </Text>
             <IconButton onClick={addThought} icon="lock">
               Keep that thought
             </IconButton>
