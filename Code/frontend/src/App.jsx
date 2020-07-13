@@ -34,41 +34,41 @@ const App = () => {
         display="flex"
         alignItems="center"
         padding={48}
+        zIndex={100}
       >
         <Box color={fontColor} fontFamily="Alatsi">
           <Logo width="140px" />
         </Box>
       </Box>
-      <Box display="flex" justifyContent="center" padding={24}>
-        <Box width={1024}>
-          <Box position="fixed" left="20vw">
-            <textarea
-              style={{
-                backgroundColor: 'rgba(0, 0, 0, 0)',
-                color: fontColor,
-                fontFamily: 'Alatsi',
-                fontSize: '34px',
-                border: 'none',
-                borderLeft: '4px solid ' + fontColor,
-                paddingLeft: '12px',
-                outline: 'none',
-                resize: 'none',
-                height: textAreaHeight,
-              }}
-              rows="1"
-              type="text"
-              placeholder={text.inputFieldPlaceholder}
-              onChange={resize}
-              onKeyDown={resize}
-              onPaste={resize}
-              onCut={resize}
-              onDrop={resize}
-            ></textarea>
-          </Box>
-          <Box height="100vh">
-            <Basin width="100%" height="100%" />
-          </Box>
+      <Box position="absolute" marginTop={20} marginLeft={120} zIndex={10}>
+        <textarea
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0)',
+            color: fontColor,
+            fontFamily: 'Alatsi',
+            fontSize: '34px',
+            border: 'none',
+            borderLeft: '4px solid ' + fontColor,
+            paddingLeft: '12px',
+            outline: 'none',
+            resize: 'none',
+            height: textAreaHeight,
+          }}
+          rows="1"
+          type="text"
+          placeholder={text.inputFieldPlaceholder}
+          onChange={resize}
+          onKeyDown={resize}
+          onPaste={resize}
+          onCut={resize}
+          onDrop={resize}
+        ></textarea>
+      </Box>
+      <Box display="flex" width="100%" justifyContent="center" zIndex={1}>
+        <Box position="fixed" margin="auto" width="1024px" bottom="0px">
+          <Basin width="100%" height="100%" />
         </Box>
+        <p id="text">Hello World</p>
       </Box>
     </Box>
   );

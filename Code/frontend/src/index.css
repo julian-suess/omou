@@ -17,3 +17,32 @@ body {
   stroke: white;
   stroke-width: 2px;
 }
+
+@keyframes rise {
+  0% {
+    bottom: 10vh;
+    opacity: 0;
+  }
+  30% {
+    bottom: 50vh;
+    opacity: 1;
+  }
+  50% {
+    bottom: 50vh;
+    opacity: 1;
+  }
+  70% {
+    bottom: 50vh;
+    opacity: 1;
+  }
+  100% {
+    bottom: 100vh;
+    opacity: 0;
+  }
+}
+
+#text {
+  position: fixed;
+  bottom: 50px;
+  animation: rise 10s infinite;
+}
