@@ -6,6 +6,6 @@ export default new LocalizedStrings({
     thoughtInputPlaceholder: 'What are you thinking?',
   },
   de: {
-    thoughtInputPlaceholder: 'Was denkst du gerade?',
+    thoughtInputPlaceholder: 'Was denkst du?',
   },
 });

@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Pane,
-  defaultTheme,
-  Textarea,
-  IconButton,
-  Heading,
-  toaster,
-  Text,
-} from 'evergreen-ui';
+import { toaster, ResetIcon } from 'evergreen-ui';
 import View from './View/View';
 
 const storageAvailable = (type) => {
@@ -116,7 +108,7 @@ const Omou = ({
       const oldest = sortedThoughts[thoughts.length - 1];
       const newest = sortedThoughts[0];
       oldest.lastSeen = Date.now();
-      setDisplayedThought(oldest.thought);
+      setDisplayedThought(newest.thought);
     }
   };
 
@@ -161,75 +153,6 @@ const Omou = ({
       displayedThought={displayedThought}
       updateDisplayedThought={updateDisplayedThought}
     />
-  );
-  return (
-    <Pane
-      className="App"
-      width="100%"
-      height="100%"
-      display="flex"
-      alignItems="center"
-      flexDirection="column"
-      marginBottom="10rem"
-      backgroundColor="red"
-    >
-      <Pane
-        width="80vw"
-        height="100%"
-        display="flex"
-        alignItems="center"
-        flexDirection="column"
-      >
-        <Pane marginTop="5rem" marginBottom="3rem" width="80%">
-          <Heading
-            size={900}
-            color={defaultTheme.palette.neutral.lightest}
-            marginBottom="1rem"
-            textAlign="center"
-            wordWrap="break-word"
-            height="6rem"
-            overflowY="auto"
-          >
-            {displayedThought}
-          </Heading>
-          <Pane
-            width="100%"
-            display="flex"
-            alignItems="flex-end"
-            justifyContent="center"
-            flexDirection="column"
-          >
-            <IconButton onClick={updateDisplayedThought} icon="reset">
-              Keep that thought
-            </IconButton>
-          </Pane>
-        </Pane>
-        <Pane width="80%">
-          <Textarea
-            height="5rem"
-            placeholder="What do you think?"
-            value={thoughtInTheMaking}
-            onChange={updateThoughtInTheMaking}
-            onKeyUp={submitThoughtInTheMaking}
-            padding={24}
-          ></Textarea>
-          <Pane
-            width="100%"
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            flexDirection="row"
-          >
-            <Text color={defaultTheme.palette.neutral.lightest}>
-              Characters left: {140 - thoughtInTheMaking.length}
-            </Text>
-            <IconButton onClick={addThought} icon="lock">
-              Keep that thought
-            </IconButton>
-          </Pane>
-        </Pane>
-      </Pane>
-    </Pane>
   );
 };
 
