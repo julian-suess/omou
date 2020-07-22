@@ -1,13 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import {
-  Pane,
-  defaultTheme,
-  Textarea,
-  IconButton,
-  Heading,
-  toaster,
-  Text,
-} from 'evergreen-ui';
+import { toaster, ResetIcon } from 'evergreen-ui';
+import View from './View/View';
 
 const storageAvailable = (type) => {
   var storage;
@@ -98,24 +91,39 @@ const Omou = ({
   },
 }) => {
   const [thoughts, setThoughts] = useState(data);
-  const [thought, setThought] = useState(data[0].thought);
+  const [displayedThought, setDisplayedThought] = useState(data[0].thought);
   const [thoughtInTheMaking, setThoughtInTheMaking] = useState('');
 
   useEffect(() => {
     localStorageCallback(thoughts);
   }, [thoughts, localStorageCallback]);
 
-  const updateThought = () => {
+  const updateDisplayedThought = () => {
     if (thoughts.length < 1) {
       // nothing to update
     } else if (thoughts.length < 1) {
-      setThought(thoughts[0].thought);
+      setDisplayedThought(thoughts[0].thought);
     } else {
       const sortedThoughts = thoughts.sort((a, b) => b.lastSeen - a.lastSeen);
       const oldest = sortedThoughts[thoughts.length - 1];
       const newest = sortedThoughts[0];
       oldest.lastSeen = Date.now();
-      setThought(oldest.thought);
+      setDisplayedThought(newest.thought);
+    }
+  };
+
+  const updateThoughtInTheMaking = (event) => {
+    const text = event.target.value;
+    if (text.length > 140) {
+      toaster.notify('Keep your thoughts short!');
+    } else {
+      setThoughtInTheMaking(text);
+    }
+  };
+
+  const submitThoughtInTheMaking = (event) => {
+    if (event.key === 'Enter') {
+      addThought();
     }
   };
 
@@ -136,83 +144,15 @@ const Omou = ({
   };
 
   return (
-    <Pane
-      className="App"
-      width="100%"
-      height="100%"
-      display="flex"
-      alignItems="center"
-      flexDirection="column"
-      marginBottom="10rem"
-    >
-      <Pane
-        width="80vw"
-        height="100%"
-        display="flex"
-        alignItems="center"
-        flexDirection="column"
-      >
-        <Pane marginTop="5rem" marginBottom="3rem" width="80%">
-          <Heading
-            size={900}
-            color={defaultTheme.palette.neutral.lightest}
-            marginBottom="1rem"
-            textAlign="center"
-            wordWrap="break-word"
-            height="6rem"
-            overflowY="auto"
-          >
-            {thought}
-          </Heading>
-          <Pane
-            width="100%"
-            display="flex"
-            alignItems="flex-end"
-            justifyContent="center"
-            flexDirection="column"
-          >
-            <IconButton onClick={updateThought} icon="reset">
-              Keep that thought
-            </IconButton>
-          </Pane>
-        </Pane>
-        <Pane width="80%">
-          <Textarea
-            height="5rem"
-            placeholder="What do you think?"
-            value={thoughtInTheMaking}
-            onChange={(event) => {
-              const text = event.target.value;
-              if (text.length > 140) {
-                toaster.notify('Keep your thoughts short!');
-              } else {
-                setThoughtInTheMaking(text);
-              }
-            }}
-            onKeyUp={(event) => {
-              if (event.key === 'Enter') {
-                addThought();
-              }
-            }}
-            padding={24}
-          ></Textarea>
-          <Pane
-            width="100%"
-            display="flex"
-            alignItems="center"
-            justifyContent="space-between"
-            flexDirection="row"
-          >
-            <Text color={defaultTheme.palette.neutral.lightest}>
-              Characters left: {140 - thoughtInTheMaking.length}
-            </Text>
-            <IconButton onClick={addThought} icon="lock">
-              Keep that thought
-            </IconButton>
-          </Pane>
-        </Pane>
-      </Pane>
-    </Pane>
+    <View
+      thoughts={thoughts}
+      addThought={addThought}
+      thoughtInTheMaking={thoughtInTheMaking}
+      submitThoughtInTheMaking={submitThoughtInTheMaking}
+      updateThoughtInTheMaking={updateThoughtInTheMaking}
+      displayedThought={displayedThought}
+      updateDisplayedThought={updateDisplayedThought}
+    />
   );
 };
 
