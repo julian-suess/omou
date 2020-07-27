@@ -65,17 +65,18 @@ const BREAKPOINTS = {
 const View = (props) => {
   const { width, height } = useWindowDimensions();
 
-  return (
-    <>
-      {width > BREAKPOINTS.TABLET && (
-        <Desktop {...props} width={width} height={height} />
-      )}
-      {width < BREAKPOINTS.TABLET && width > BREAKPOINTS.MOBILE && (
-        <Tablet {...props} />
-      )}
-      {width < BREAKPOINTS.MOBILE && <Tablet {...props} />}
-    </>
-  );
+  let component = <Tablet {...props} />;
+  switch (true) {
+    case width > BREAKPOINTS.TABLET:
+      component = <Desktop {...props} width={width} height={height} />;
+      break;
+    case width < BREAKPOINTS.TABLET && width > BREAKPOINTS.MOBILE:
+      component = <Tablet {...props} />;
+      break;
+    default:
+      break;
+  }
+  return component;
 };
 
 const Tablet = ({
@@ -102,6 +103,8 @@ const Tablet = ({
     </Box>
   );
 };
+
+// w / h
 const ratio = 1920 / 1080;
 const Desktop = ({
   thoughts,
@@ -111,6 +114,7 @@ const Desktop = ({
   updateThoughtInTheMaking,
   displayedThought,
   updateDisplayedThought,
+  width,
   height,
 }) => {
   const [isHidden, setIsHidden] = useState(false);
@@ -121,6 +125,11 @@ const Desktop = ({
   };
 
   const cWidth = height * ratio;
+
+  // 12/7
+  let left = 100;
+  let position = 'relative';
+
   return (
     <Box
       backgroundColor={backgroundColor}
@@ -145,9 +154,9 @@ const Desktop = ({
           }}
         />
         <Box
-          position="relative"
+          position={position}
           top={'-80vh'}
-          left={100}
+          left={left}
           zIndex={10}
           overflow="hidden"
         >

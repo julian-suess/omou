@@ -1,6 +1,22 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const getRandomNumber = () => {
+  const max = 24;
+  const min = 6;
+  return Math.floor(Math.random() * Math.floor(max)) + min;
+};
 
 const Basin = ({ giveMeAThought, ...props }) => {
+  let starAnimation = {
+    initial: { opacity: 1 },
+    animate: { opacity: 0 },
+    transition: {
+      flip: Infinity,
+      duration: 2,
+    },
+  };
+
   return (
     <svg
       viewBox="0 0 1920 1080"
@@ -12,7 +28,7 @@ const Basin = ({ giveMeAThought, ...props }) => {
         <path
           id="sky"
           d="M1965.71 -22.8572H-48.5714V1142.86H1965.71V-22.8572Z"
-          fill="#3F74AF"
+          fill="url(#gradient)"
         />
         <path
           id="ground"
@@ -122,14 +138,284 @@ const Basin = ({ giveMeAThought, ...props }) => {
           />
         </g>
 
-        <path
-          id="star_2"
-          d="M702.821 102.99C704.892 102.99 706.571 101.311 706.571 99.24C706.571 97.1689 704.892 95.49 702.821 95.49C700.75 95.49 699.071 97.1689 699.071 99.24C699.071 101.311 700.75 102.99 702.821 102.99Z"
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M664.036 173.071C668.474 173.071 672.071 169.474 672.071 165.036C672.071 160.598 668.474 157 664.036 157C659.598 157 656 160.598 656 165.036C656 169.474 659.598 173.071 664.036 173.071Z"
           fill="white"
         />
-        <path
-          id="star_1"
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M765.5 55C768.538 55 771 52.5376 771 49.5C771 46.4624 768.538 44 765.5 44C762.462 44 760 46.4624 760 49.5C760 52.5376 762.462 55 765.5 55Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M620 25C621.105 25 622 24.1046 622 23C622 21.8954 621.105 21 620 21C618.895 21 618 21.8954 618 23C618 24.1046 618.895 25 620 25Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M742 127C743.105 127 744 126.105 744 125C744 123.895 743.105 123 742 123C740.895 123 740 123.895 740 125C740 126.105 740.895 127 742 127Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1003 28C1004.1 28 1005 27.1046 1005 26C1005 24.8954 1004.1 24 1003 24C1001.9 24 1001 24.8954 1001 26C1001 27.1046 1001.9 28 1003 28Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1467 24C1468.1 24 1469 23.1046 1469 22C1469 20.8954 1468.1 20 1467 20C1465.9 20 1465 20.8954 1465 22C1465 23.1046 1465.9 24 1467 24Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1489 125C1490.1 125 1491 124.105 1491 123C1491 121.895 1490.1 121 1489 121C1487.9 121 1487 121.895 1487 123C1487 124.105 1487.9 125 1489 125Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1622 149C1623.1 149 1624 148.105 1624 147C1624 145.895 1623.1 145 1622 145C1620.9 145 1620 145.895 1620 147C1620 148.105 1620.9 149 1622 149Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1758 336C1759.1 336 1760 335.105 1760 334C1760 332.895 1759.1 332 1758 332C1756.9 332 1756 332.895 1756 334C1756 335.105 1756.9 336 1758 336Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1777 211C1778.1 211 1779 210.105 1779 209C1779 207.895 1778.1 207 1777 207C1775.9 207 1775 207.895 1775 209C1775 210.105 1775.9 211 1777 211Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1655 321C1656.1 321 1657 320.105 1657 319C1657 317.895 1656.1 317 1655 317C1653.9 317 1653 317.895 1653 319C1653 320.105 1653.9 321 1655 321Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1137 28C1138.1 28 1139 27.1046 1139 26C1139 24.8954 1138.1 24 1137 24C1135.9 24 1135 24.8954 1135 26C1135 27.1046 1135.9 28 1137 28Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1178 63C1179.1 63 1180 62.1046 1180 61C1180 59.8954 1179.1 59 1178 59C1176.9 59 1176 59.8954 1176 61C1176 62.1046 1176.9 63 1178 63Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M957 213C958.105 213 959 212.105 959 211C959 209.895 958.105 209 957 209C955.895 209 955 209.895 955 211C955 212.105 955.895 213 957 213Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1385 244C1386.1 244 1387 243.105 1387 242C1387 240.895 1386.1 240 1385 240C1383.9 240 1383 240.895 1383 242C1383 243.105 1383.9 244 1385 244Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1359 181C1360.1 181 1361 180.105 1361 179C1361 177.895 1360.1 177 1359 177C1357.9 177 1357 177.895 1357 179C1357 180.105 1357.9 181 1359 181Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M917 46C918.105 46 919 45.1046 919 44C919 42.8954 918.105 42 917 42C915.895 42 915 42.8954 915 44C915 45.1046 915.895 46 917 46Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1197 156C1198.1 156 1199 155.105 1199 154C1199 152.895 1198.1 152 1197 152C1195.9 152 1195 152.895 1195 154C1195 155.105 1195.9 156 1197 156Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M760.5 235C762.433 235 764 233.433 764 231.5C764 229.567 762.433 228 760.5 228C758.567 228 757 229.567 757 231.5C757 233.433 758.567 235 760.5 235Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M986.75 157.5C988.821 157.5 990.5 155.821 990.5 153.75C990.5 151.679 988.821 150 986.75 150C984.679 150 983 151.679 983 153.75C983 155.821 984.679 157.5 986.75 157.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1627.75 36.5C1629.82 36.5 1631.5 34.8211 1631.5 32.75C1631.5 30.6789 1629.82 29 1627.75 29C1625.68 29 1624 30.6789 1624 32.75C1624 34.8211 1625.68 36.5 1627.75 36.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1763.75 47.5C1765.82 47.5 1767.5 45.8211 1767.5 43.75C1767.5 41.6789 1765.82 40 1763.75 40C1761.68 40 1760 41.6789 1760 43.75C1760 45.8211 1761.68 47.5 1763.75 47.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1472.75 254.5C1474.82 254.5 1476.5 252.821 1476.5 250.75C1476.5 248.679 1474.82 247 1472.75 247C1470.68 247 1469 248.679 1469 250.75C1469 252.821 1470.68 254.5 1472.75 254.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1138.5 106C1139.88 106 1141 104.881 1141 103.5C1141 102.119 1139.88 101 1138.5 101C1137.12 101 1136 102.119 1136 103.5C1136 104.881 1137.12 106 1138.5 106Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M960.75 104.5C962.821 104.5 964.5 102.821 964.5 100.75C964.5 98.6789 962.821 97 960.75 97C958.679 97 957 98.6789 957 100.75C957 102.821 958.679 104.5 960.75 104.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1399.75 135.5C1401.82 135.5 1403.5 133.821 1403.5 131.75C1403.5 129.679 1401.82 128 1399.75 128C1397.68 128 1396 129.679 1396 131.75C1396 133.821 1397.68 135.5 1399.75 135.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1406.75 43.5C1408.82 43.5 1410.5 41.8211 1410.5 39.75C1410.5 37.6789 1408.82 36 1406.75 36C1404.68 36 1403 37.6789 1403 39.75C1403 41.8211 1404.68 43.5 1406.75 43.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1446.75 201.5C1448.82 201.5 1450.5 199.821 1450.5 197.75C1450.5 195.679 1448.82 194 1446.75 194C1444.68 194 1443 195.679 1443 197.75C1443 199.821 1444.68 201.5 1446.75 201.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1150.75 220.5C1152.82 220.5 1154.5 218.821 1154.5 216.75C1154.5 214.679 1152.82 213 1150.75 213C1148.68 213 1147 214.679 1147 216.75C1147 218.821 1148.68 220.5 1150.75 220.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1339.5 79C1340.88 79 1342 80.1193 1342 81.5C1342 82.8807 1340.88 84 1339.5 84C1338.12 84 1337 82.8807 1337 81.5C1337 80.1193 1338.12 79 1339.5 79Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M378.393 275C382.831 275 386.429 271.402 386.429 266.964C386.429 262.526 382.831 258.929 378.393 258.929C373.955 258.929 370.357 262.526 370.357 266.964C370.357 271.402 373.955 275 378.393 275Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M682.75 67.5C684.821 67.5 686.5 65.8211 686.5 63.75C686.5 61.6789 684.821 60 682.75 60C680.679 60 679 61.6789 679 63.75C679 65.8211 680.679 67.5 682.75 67.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M673.5 230C674.881 230 676 228.881 676 227.5C676 226.119 674.881 225 673.5 225C672.119 225 671 226.119 671 227.5C671 228.881 672.119 230 673.5 230Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M298.75 128.5C300.821 128.5 302.5 126.821 302.5 124.75C302.5 122.679 300.821 121 298.75 121C296.679 121 295 122.679 295 124.75C295 126.821 296.679 128.5 298.75 128.5Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M374.5 157C376.433 157 378 155.433 378 153.5C378 151.567 376.433 150 374.5 150C372.567 150 371 151.567 371 153.5C371 155.433 372.567 157 374.5 157Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M349.5 351C353.09 351 356 348.09 356 344.5C356 340.91 353.09 338 349.5 338C345.91 338 343 340.91 343 344.5C343 348.09 345.91 351 349.5 351Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M411.5 52C414.538 52 417 49.5376 417 46.5C417 43.4624 414.538 41 411.5 41C408.462 41 406 43.4624 406 46.5C406 49.5376 408.462 52 411.5 52Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
           d="M1657.23 69.6429C1660.14 69.6429 1662.5 67.2844 1662.5 64.375C1662.5 61.4657 1660.14 59.1072 1657.23 59.1072C1654.32 59.1072 1651.96 61.4657 1651.96 64.375C1651.96 67.2844 1654.32 69.6429 1657.23 69.6429Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1772.27 191.536C1775.18 191.536 1777.54 189.177 1777.54 186.268C1777.54 183.358 1775.18 181 1772.27 181C1769.36 181 1767 183.358 1767 186.268C1767 189.177 1769.36 191.536 1772.27 191.536Z"
+          fill="white"
+        />
+        <motion.path
+          {...starAnimation}
+          iinitial={{ opacity: Math.random() }}
+          transition={{ flip: Infinity, duration: getRandomNumber() }}
+          d="M1700.27 273.536C1703.18 273.536 1705.54 271.177 1705.54 268.268C1705.54 265.358 1703.18 263 1700.27 263C1697.36 263 1695 265.358 1695 268.268C1695 271.177 1697.36 273.536 1700.27 273.536Z"
           fill="white"
         />
       </g>
@@ -137,6 +423,37 @@ const Basin = ({ giveMeAThought, ...props }) => {
         <clipPath id="clip0">
           <rect width="1920" height="1080" fill="white" />
         </clipPath>
+        <linearGradient id="gradient" x1="0" x2="0" y1="0" y2="1">
+          <motion.stop
+            stopColor="#3F74AF"
+            animate={{
+              stopColor: [
+                'rgb(33, 86, 145)',
+                'rgb(63, 116, 175)',
+                'rgb(93, 146, 205)',
+                'rgb(123, 176, 235)',
+              ],
+            }}
+            transition={{
+              flip: Infinity,
+              ease: 'linear',
+              duration: 12,
+            }}
+            offset="25%"
+          />
+          <motion.stop
+            stopColor="#FF0000"
+            animate={{
+              stopColor: ['rgb(255, 0, 0)', 'rgb(225, 0, 0)', 'rgb(195, 0, 0)'],
+            }}
+            transition={{
+              flip: Infinity,
+              ease: 'linear',
+              duration: 12,
+            }}
+            offset="75%"
+          />
+        </linearGradient>
       </defs>
     </svg>
   );

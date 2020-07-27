@@ -15,3 +15,21 @@ body {
 ::placeholder {
   color: white;
 }
+
+:root {
+  --animation-time: 2s;
+}
+
+.star {
+  animation: var(--animation-time) infinite alternate pulse1;
+}
+
+@keyframes pulse0 {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

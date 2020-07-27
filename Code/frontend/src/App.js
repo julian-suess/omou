@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { toaster, ResetIcon } from 'evergreen-ui';
+import { toaster } from 'evergreen-ui';
 import View from './View/View';
 
 const storageAvailable = (type) => {
